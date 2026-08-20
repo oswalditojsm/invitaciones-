@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS guests (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  username TEXT NOT NULL UNIQUE,
+  invited_at TEXT NOT NULL,
+  opened_at TEXT,
+  confirmed INTEGER NOT NULL DEFAULT 0,
+  confirmed_at TEXT
+);
