@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invitación · Evento Corporativo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="stage" id="stage">
+
+  <!-- LOGIN -->
+  <div id="view-login">
+    <div class="eyebrow">Acceso al evento</div>
+    <div class="login-card">
+      <h1 class="event-title">Encuentro Anual de Liderazgo</h1>
+      <p class="event-meta">
+        12 de septiembre, 2026 — 6:00 PM<br>
+        Salón Auditorio, Torre Corporativa<br>
+        Código de evento: EAL-2026
+      </p>
+      <label class="field-label" for="username">Tu nombre</label>
+      <input type="text" id="username" placeholder="Escribe tu nombre completo" autocomplete="name">
+
+      <div id="adminKeyField" style="display:none; margin-top:16px;">
+        <label class="field-label" for="adminKey">Clave de administrador</label>
+        <input type="password" id="adminKey" placeholder="••••••••">
+      </div>
+
+      <button class="btn" id="btnEntrar">Ingresar</button>
+      <div class="error-msg" id="loginError"></div>
+    </div>
+  </div>
+
+  <!-- BADGE INVITADO -->
+  <div id="view-badge" class="badge-wrap">
+    <div class="eyebrow">Credencial digital</div>
+    <div class="badge">
+      <div class="badge-eyebrow">Encuentro Anual de Liderazgo · 2026</div>
+      <h2 class="badge-name" id="guestName">—</h2>
+      <div class="badge-role">Invitado</div>
+      <hr class="badge-divider">
+      <div class="badge-detail-row"><span>Fecha</span><span>12 sep 2026, 6:00 PM</span></div>
+      <div class="badge-detail-row"><span>Lugar</span><span>Torre Corporativa, Auditorio</span></div>
+      <div class="badge-detail-row"><span>Código</span><span>EAL-2026</span></div>
+      <div class="confirm-zone">
+        <button class="btn-confirm" id="btnConfirmar">Confirmar mi asistencia</button>
+        <div class="stamp" id="stamp">CONFIRMADO</div>
+        <div class="status-note" id="statusNote"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADMIN -->
+  <div id="view-admin" class="admin-wrap">
+    <div class="admin-card">
+      <div class="admin-header">
+        <h2 class="admin-title">Panel de asistencia</h2>
+        <span class="admin-count" id="adminCount">0 confirmados</span>
+      </div>
+      <div class="admin-sub">Encuentro Anual de Liderazgo · EAL-2026</div>
+
+      <div class="add-guest-row">
+        <input type="text" id="newGuestName" placeholder="Nombre del invitado">
+        <button class="btn-add" id="btnAddGuest">Agregar</button>
+      </div>
+      <div class="error-msg" id="addGuestError"></div>
+
+      <table class="roster" id="rosterTable">
+        <thead>
+          <tr><th>Nombre</th><th>Abrió</th><th>Estado</th><th></th></tr>
+        </thead>
+        <tbody id="rosterBody"></tbody>
+      </table>
+      <div class="empty-roster" id="emptyRoster" style="display:none;">Todavía nadie ha abierto la invitación.</div>
+      <button class="refresh-btn" id="btnRefresh">Actualizar lista</button>
+    </div>
+  </div>
+
+</div>
+
+<script src="/app.js"></script>
+</body>
+</html>
